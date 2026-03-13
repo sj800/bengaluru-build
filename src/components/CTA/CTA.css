@@ -1,0 +1,66 @@
+.cta-section {
+  background: linear-gradient(90deg, #181a1b 60%, #232323 100%);
+  padding: 3rem 0;
+}
+
+.cta__banner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 24px;
+  background: rgba(32, 34, 37, 0.7);
+  box-shadow: 0 4px 32px 0 #00eaff22;
+  backdrop-filter: blur(8px);
+}
+
+.cta__headline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: 'Inter', 'Plus Jakarta Sans', 'Satoshi', sans-serif;
+}
+
+.cta__subhead {
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta__form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta__input {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  background: #232323;
+  color: #fff;
+  box-shadow: 0 2px 8px #00000022;
+  min-width: 220px;
+}
+
+.cta__button {
+  background: linear-gradient(90deg, #7f5fff 0%, #00eaff 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 0 16px 2px #00eaff44;
+}
+
+.cta__button:hover {
+  background: linear-gradient(90deg, #00eaff 0%, #7f5fff 100%);
+  box-shadow: 0 0 32px 4px #00eaff88;
+}
