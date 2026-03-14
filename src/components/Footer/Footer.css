@@ -1,6 +1,6 @@
 .footer {
-  background: #181a1b;
-  color: #fff;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
   padding: 2rem 0 1rem 0;
   font-family: 'Inter', 'Plus Jakarta Sans', 'Satoshi', sans-serif;
 }
@@ -27,14 +27,14 @@
 }
 
 .footer__links a {
-  color: #b3b3b3;
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s;
 }
 
 .footer__links a:hover {
-  color: #00eaff;
+  color: var(--color-accent2);
 }
 
 .footer__social {
@@ -47,13 +47,17 @@
   transition: stroke 0.2s;
 }
 
-.footer__social a:hover svg circle {
-  stroke: #00eaff;
+.footer__social a svg circle, .footer__social a svg path, .footer__social a svg rect {
+    stroke: var(--color-text);
+}
+
+.footer__social a:hover svg circle, .footer__social a:hover svg path, .footer__social a:hover svg rect {
+  stroke: var(--color-accent2);
 }
 
 .footer__copyright {
   text-align: center;
-  color: #b3b3b3;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
   margin-top: 1.5rem;
 }

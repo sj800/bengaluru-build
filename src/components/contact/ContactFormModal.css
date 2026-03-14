@@ -1,0 +1,206 @@
+/* =========================
+   Overlay & Modal
+========================= */
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  z-index: 3000;
+  animation: overlayFade 0.25s ease;
+}
+
+.contact-modal {
+  position: relative;
+  width: 90%;
+  max-width: 480px;
+  padding: 40px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  animation: modalAppear 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-sizing: border-box; /* Ensures padding doesn't push width out */
+}
+
+.contact-modal h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* =========================
+   Form Elements
+========================= */
+.contact-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Base style for all inputs and button */
+.contact-modal input,
+.phone-input,
+.submit-btn {
+  width: 100% !important;
+  height: 50px !important;
+  box-sizing: border-box !important; /* Critical for alignment */
+  border-radius: 12px !important;
+  font-size: 15px;
+}
+
+.contact-modal input {
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.contact-modal input:focus {
+  border-color: #4f8cff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.15);
+}
+
+/* =========================
+   Phone Input Customization
+========================= */
+.phone-container {
+  width: 100% !important;
+}
+
+.phone-input {
+  padding-left: 55px !important; /* Space for flag */
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: white !important;
+}
+
+.react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 12px 0 0 12px !important;
+}
+
+.react-tel-input .selected-flag {
+  background: transparent !important;
+  padding-left: 12px !important;
+}
+
+/* The dropdown list when searching for countries */
+.react-tel-input .country-list {
+  background: #1c1c1e !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+  scrollbar-width: thin;
+}
+
+/* =========================
+   Buttons & Extras
+========================= */
+.submit-btn {
+  margin-top: 8px;
+  border: none;
+  background: linear-gradient(135deg, #4f8cff, #7aa6ff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 140, 255, 0.3);
+}
+
+.contact-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   Animations & Responsive
+========================= */
+@keyframes modalAppear {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =========================
+   Slow Slide Toast
+========================= */
+.toast {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 18px 28px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #111111;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  /* Slower, smoother animation */
+  animation: toastSlowSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast.error {
+  background: #ff4f4f;
+  color: white;
+}
+
+@keyframes toastSlowSlide {
+  from {
+    transform: translateX(150%); /* Start further off-screen */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Optional: Add a subtle fade out animation */
+.toast-exit {
+  animation: toastFadeOut 0.5s ease forwards;
+}
+
+@keyframes toastFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

@@ -1,8 +1,7 @@
-/* Global styles and CSS variables */
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: #000000; /* Directly set to black */
+  color: #ffffff;    /* Ensure text is visible */
   transition: background 0.3s, color 0.3s;
 }
