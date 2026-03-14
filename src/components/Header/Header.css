@@ -98,6 +98,7 @@
 }
 
 /* Mobile menu styles */
+/* Hide mobile menu on desktop */
 .header__mobile-menu {
   position: fixed;
   top: 0;
@@ -115,9 +116,20 @@
   align-items: flex-end;
   padding: 32px 0 0 0;
   transition: right 0.32s cubic-bezier(.4,1.2,.4,1);
+  overflow-x: hidden;
 }
 .header__mobile-menu.open {
   right: 0;
+}
+@media (min-width: 769px) {
+  .header__mobile-menu,
+  .header__backdrop {
+    display: none !important;
+  }
+}
+/* Prevent horizontal scroll on body when mobile menu is open */
+body.menu-open {
+  overflow-x: hidden !important;
 }
 .header__close-btn {
   background: none;

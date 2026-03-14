@@ -8,6 +8,17 @@ import React, { useState } from "react";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  React.useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [menuOpen]);
+
   return (
     <header className="header">
       <div className="header__container">
