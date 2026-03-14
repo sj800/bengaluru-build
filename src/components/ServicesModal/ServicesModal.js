@@ -45,43 +45,53 @@ const ServicesModal = ({ close }) => {
 
   const cards = [...services, ...services, ...services];
 
-useEffect(() => {
-  const track = trackRef.current;
+  useEffect(() => {
 
-  const cardWidth = track.children[0].offsetWidth + 40;
-  const totalCards = services.length;
-
-  // Start in middle set, second card centered
-  track.scrollLeft = cardWidth * (totalCards + 1);
-
-  const handleScroll = () => {
-    const maxScroll = cardWidth * cards.length;
-
-    // if user scrolls too far right
-    if (track.scrollLeft > cardWidth * (totalCards * 2)) {
-      track.scrollLeft -= cardWidth * totalCards;
-    }
-
-    // if user scrolls too far left
-    if (track.scrollLeft < cardWidth * totalCards) {
-      track.scrollLeft += cardWidth * totalCards;
-    }
-  };
-
-  track.addEventListener("scroll", handleScroll);
-
-  return () => track.removeEventListener("scroll", handleScroll);
-}, []);
-
-  const handleCardClick = (index) => {
     const track = trackRef.current;
+    const total = services.length;
 
     const cardWidth = track.children[0].offsetWidth + 40;
 
+    track.scrollLeft = cardWidth * total;
+
+    const handleScroll = () => {
+
+      const max = cardWidth * total * 2;
+
+      if (track.scrollLeft >= max) {
+        track.scrollLeft -= cardWidth * total;
+      }
+
+      if (track.scrollLeft <= cardWidth * (total - 1)) {
+        track.scrollLeft += cardWidth * total;
+      }
+
+    };
+
+    track.addEventListener("scroll", handleScroll);
+
+    return () => track.removeEventListener("scroll", handleScroll);
+
+  }, []);
+
+  const handleCardClick = (index) => {
+
+    const track = trackRef.current;
+
+    const card = track.children[index];
+
+    const trackWidth = track.offsetWidth;
+
+    const cardCenter =
+      card.offsetLeft +
+      card.offsetWidth / 2 -
+      trackWidth / 2;
+
     track.scrollTo({
-      left: index * cardWidth,
+      left: cardCenter,
       behavior: "smooth"
     });
+
   };
 
   return (
