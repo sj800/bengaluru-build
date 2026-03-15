@@ -12,12 +12,15 @@ import Pricing from './pages/pricing/Pricing';
 import Contact from './pages/Contact';
 import IdeasOnPaper from './components/Blogs/IdeasOnPaper';
 import BlogController from './components/Blogs/BlogController';
+import ScrollToTop from './utils/ScrollToTop';
 
 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
+
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
