@@ -1,0 +1,112 @@
+/* FeaturedBlogs.css */
+
+.featured-section {
+  background: #000; /* Matches your CTA section exactly */
+  padding: 15vh 0; /* Vertical breathing room for the scroll zoom */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* The white glassy container */
+.white-glass {
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque for readability on black */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /* Stronger shadow for depth on black */
+  border-radius: 32px;
+  max-width: 1100px;
+  width: 90%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center center;
+}
+
+.featured__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #1d1d1f; /* Apple Dark Text */
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.featured__title .highlight {
+  color: #007aff;
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.featured__card {
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.03); /* Subtle inset look */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.featured__card:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #007aff;
+  border-radius: 50%;
+}
+
+.featured__card h3 {
+  font-size: 1.1rem;
+  color: #1d1d1f;
+  font-weight: 600;
+}
+
+.featured__card p {
+  color: #424245; /* Medium grey for contrast on white glass */
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Bottom Right Action */
+.featured__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2.5rem;
+}
+
+.view-all-arrow {
+  color: #1d1d1f;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s;
+}
+
+.view-all-arrow:hover {
+  color: #007aff;
+  transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .featured__grid {
+    grid-template-columns: 1fr;
+  }
+  .white-glass {
+    padding: 2.5rem 1.5rem;
+  }
+}

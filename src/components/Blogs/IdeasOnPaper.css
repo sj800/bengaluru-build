@@ -1,0 +1,111 @@
+.blog-page {
+  background-color: #000; /* Deep Apple Black */
+  min-height: 100vh;
+  color: #fff;
+}
+
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px 80px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.blog-header h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -3px;
+  margin-top: 15px;
+}
+
+.highlight {
+  color: #007aff; /* Apple Blue */
+}
+
+.category-pill {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Bento Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.blog-card {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.blog-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-category {
+  color: #007aff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: #f5f5f7;
+}
+
+.card-excerpt {
+  color: #86868b;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card-date {
+  font-size: 0.85rem;
+  color: #424245;
+}
+
+.read-more {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-container {
+    padding-top: 100px;
+  }
+}

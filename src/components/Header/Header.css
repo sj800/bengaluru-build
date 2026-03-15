@@ -31,13 +31,20 @@
 .header__left {
   font-size: 22px;
   font-weight: 600;
-
   color: white;
-
   letter-spacing: -0.01em;
-
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-  "Helvetica Neue", sans-serif;
+    "Helvetica Neue", sans-serif;
+}
+
+/* Remove link styles for logo, only pointer on hover */
+.header__logo-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+.header__logo-link:hover {
+  cursor: pointer;
 }
 
 /* nav container */

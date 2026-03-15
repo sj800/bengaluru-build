@@ -6,12 +6,14 @@ import Value from '../components/Value/Value';
 
 import Footer from '../components/Footer/Footer';
 import CTA from '../components/CTA/CTA';
+import FeaturedBlogs from '../components/Blogs/FeaturedBlogs';
 
 const Home = () => (
   <>
     <Hero />
     <Authority />
     <Services />
+    <FeaturedBlogs/>
     <Value />
     <CTA />
     <Footer />

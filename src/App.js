@@ -10,6 +10,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Pricing from './pages/pricing/Pricing';
 import Contact from './pages/Contact';
+import IdeasOnPaper from './components/Blogs/IdeasOnPaper';
+import BlogRoutes from './BlogRoutes';
+
 
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/ideas-on-paper" element={<IdeasOnPaper />} />
+          <Route path="/blog/*" element={<BlogRoutes />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </MainLayout>
     </Router>

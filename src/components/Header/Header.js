@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <div className="header__left">Bengaluru Builds</div>
+        <Link to="/" className="header__left header__logo-link">Bengaluru Builds</Link>
         <nav className="header__nav desktop-nav">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
