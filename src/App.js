@@ -11,7 +11,7 @@ import About from './pages/About';
 import Pricing from './pages/pricing/Pricing';
 import Contact from './pages/Contact';
 import IdeasOnPaper from './components/Blogs/IdeasOnPaper';
-import BlogRoutes from './BlogRoutes';
+import BlogController from './components/Blogs/BlogController';
 
 
 
@@ -25,7 +25,8 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ideas-on-paper" element={<IdeasOnPaper />} />
-          <Route path="/blog/*" element={<BlogRoutes />} />
+          <Route path="/blog" element={<Home />} />
+          <Route path="/blog/:id" element={<BlogController />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </MainLayout>
