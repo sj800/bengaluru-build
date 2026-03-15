@@ -1,0 +1,4 @@
+[[rules]]
+type = "Rewrite"
+from = "/*"
+to = "/index.html"
