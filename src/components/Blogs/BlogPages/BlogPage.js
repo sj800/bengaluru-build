@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import './BlogPages.css';
 import FeaturedBlogs from '../FeaturedBlogs';
+import { Helmet } from "react-helmet";
 
 const ScrollReveal = ({ children }) => (
   <motion.div
@@ -28,6 +29,43 @@ const BlogPage = ({ data }) => {
 
   return (
     <div className="blog-post-page">
+      <Helmet>
+        <title>{blogContent.title} | Bengaluru Builds</title>
+
+        <meta name="description" content={blogContent.subtitle} />
+
+        <meta property="og:title" content={blogContent.title} />
+        <meta property="og:description" content={blogContent.subtitle} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://bengalurubuilds.com/blog/${blogContent.slug}`} />
+          <meta
+    property="og:image"
+    content={`https://bengalurubuilds.com/B.png`}/>
+
+        <link
+          rel="canonical"
+          href={`https://bengalurubuilds.com/blog/${blogContent.slug}`}
+        />
+        <script type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": blogContent.title,
+  "description": blogContent.subtitle,
+  "author": {
+    "@type": "Person",
+    "name": blogContent.writer
+  },
+  "datePublished": blogContent.date,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bengaluru Builds"
+  }
+})}
+</script>
+
+      </Helmet>
+
       {/* Reading Progress Bar */}
       <motion.div className="reading-progress-bar" style={{ scaleX }} />
 

@@ -91,15 +91,15 @@ const blogList = [
   },
  {
   "id": 6,
-  "slug": "ideas-for-indian-railways",
-  "title": "Ideas for Indian Railways",
+  "slug": "future-of-indian-railways",
+  "title": "Future of Indian Railways",
   "subtitle": "Bridging India’s Distance: A High-Speed Rail Revolution to knit the country together.",
   "excerpt": "A nationwide bullet train grid to slash travel times, increase capacity, and connect every region of India.",
   "category": "Infrastructure",
   "writer": "Suraj Shukla",
   "date": "March 15, 2026",
   "featured": true,
-  "link": "/blog/ideas-for-indian-railways",
+  "link": "/blog/future-of-indian-railways",
   "content": [
     {
       "type": "heading",
