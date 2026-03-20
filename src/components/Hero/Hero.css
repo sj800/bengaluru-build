@@ -79,7 +79,7 @@
 
   color: rgba(255,255,255,0.75);
 
-  max-width: 720px;
+  max-width: 800px;
   margin: auto;
 
   margin-bottom: 40px;
@@ -170,5 +170,21 @@
 
   .hero__actions {
     flex-direction: column;
+  }
+}
+
+/* Update Responsive for H2 */
+@media (max-width: 768px) {
+  .hero__headline {
+    font-size: 40px;
+  }
+
+  .hero__subheadline {
+    font-size: 24px;
+    margin-top: 0;
+  }
+
+  .hero__subhead {
+    font-size: 18px;
   }
 }

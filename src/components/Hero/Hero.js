@@ -13,12 +13,14 @@ const Hero = () => {
     <>
       <section className="hero">
         <div className="hero__content">
-          <h1 className="hero__headline">Building Your Digital Future.</h1>
+    {/* H1: The main hook with your brand name or primary value */}
+    <h1 className="hero__headline">
+      Build Your Digital Presence
+    </h1>
 
-          <p className="hero__subhead">
-            From blazing-fast static websites and high-converting Shopify
-            stores to full digital platform management.
-          </p>
+    <p className="hero__subhead">
+      From high-performance Shopify stores to Personal brands. We build the digital foundations your brand deserves.
+    </p>
 
           <div className="hero__actions">
             <Button className="btn-primary" onClick={() => setOpen(true)}>

@@ -1,122 +1,80 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./ServicesModal.css";
 
 const services = [
   {
-    title: "Static Website Development",
+    title: "Shopify Store Build",
     features: [
-      "Blazing fast performance",
-      "SEO optimized",
-      "Secure architecture",
-      "Modern responsive design"
+      "Quickstore Setup",
+      "Payment & Tax Integration",
+      "Inventory & Analytics Setup",
+      "Conversion-Ready Launch"
     ]
   },
   {
-    title: "Shopify Store Development",
+    title: "Personal & Business Brands",
     features: [
-      "Custom storefront design",
-      "Conversion optimization",
-      "Payment integration",
-      "Analytics integration"
+      "Custom Brand Identity",
+      "SEO Optimization",
+      "Minimal maintenance",
+      "Mobile friendly design"
     ]
   },
   {
-    title: "Digital Marketing",
+    title: "Social Identity Setup",
     features: [
-      "Instagram & Facebook ads",
-      "Audience growth",
-      "Content strategy",
-      "Campaign optimization"
+      "Profile setup across platforms",
+      "Bio & Keyword Optimization",
+      "Cross-Platform Linking",
+      "Brand Identity Foundations"
     ]
   },
   {
     title: "Domain & Email Setup",
     features: [
-      "Domain registration",
-      "Professional email setup",
-      "Email forwarding",
-      "Security configuration"
+      "Domain setup & management",
+      "Free Hosting",
+      "Professional Email Routing",
+      "Domain Privacy Protection"
     ]
   }
 ];
 
-const ServicesModal = ({ close }) => {
-  const trackRef = useRef(null);
-
-  const cards = [...services, ...services, ...services];
-
-  useEffect(() => {
-
-    const track = trackRef.current;
-    const total = services.length;
-
-    const cardWidth = track.children[0].offsetWidth + 40;
-
-    track.scrollLeft = cardWidth * total;
-
-    const handleScroll = () => {
-
-      const max = cardWidth * total * 2;
-
-      if (track.scrollLeft >= max) {
-        track.scrollLeft -= cardWidth * total;
-      }
-
-      if (track.scrollLeft <= cardWidth * (total - 1)) {
-        track.scrollLeft += cardWidth * total;
-      }
-
-    };
-
-    track.addEventListener("scroll", handleScroll);
-
-    return () => track.removeEventListener("scroll", handleScroll);
-
-  }, []);
-
-  const handleCardClick = (index) => {
-
-    const track = trackRef.current;
-
-    const card = track.children[index];
-
-    const trackWidth = track.offsetWidth;
-
-    const cardCenter =
-      card.offsetLeft +
-      card.offsetWidth / 2 -
-      trackWidth / 2;
-
-    track.scrollTo({
-      left: cardCenter,
-      behavior: "smooth"
-    });
-
-  };
-
+const ServicesModal = ({ close, onSelectService }) => {
   return (
     <div className="services-modal-overlay">
+      <button className="modal-close" onClick={close} aria-label="Close Modal">✕</button>
+      
+      <div className="services-modal__container">
+        <header className="services-modal__header">
+          <h2>Our Services</h2>
+          <p>Everything you need to launch your digital presence.</p>
+        </header>
 
-      <button className="modal-close" onClick={close}>✕</button>
-
-      <div className="carousel-track" ref={trackRef}>
-        {cards.map((service, i) => (
-          <div
-            className="carousel-card"
-            key={i}
-            onClick={() => handleCardClick(i)}
-          >
-            <h3>{service.title}</h3>
-
-            <ul>
-              {service.features.map((f, j) => (
-                <li key={j}>{f}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="services-grid">
+          {services.map((service, i) => (
+            <div className="service-card" key={i}>
+              <div className="service-card__content">
+                <h3>{service.title}</h3>
+                <ul>
+                  {service.features.map((f, j) => (
+                    <li key={j}><span className="check">✓</span> {f}</li>
+                  ))}
+                </ul>
+              </div>
+              <button 
+                className="btn-card-select" 
+                onClick={() => {
+                  if(onSelectService) onSelectService(service.title);
+                  close();
+                }}
+              >
+                Get Started
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-
     </div>
   );
 };
