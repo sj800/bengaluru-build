@@ -13,6 +13,10 @@
 
 /* Title */
 
+.service-card-title {
+  text-transform: uppercase;
+}
+
 .services-title {
   text-align: center;
   font-size: 48px;

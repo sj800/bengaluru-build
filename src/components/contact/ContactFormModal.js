@@ -9,9 +9,20 @@ const ContactFormModal = ({ close }) => {
     firstName: "",
     lastName: "",
     phone: "",
+    countryCode: "91",
     email: "",
     usage: "business"
   });
+
+  const handlePhoneChange = (value, data) => {
+    const subscriberNumber = value.slice(data.dialCode.length);
+
+    setForm((prev) => ({
+      ...prev,
+      phone: subscriberNumber,
+      countryCode: data.dialCode
+    }));
+  };
 
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(null);
@@ -19,10 +30,6 @@ const ContactFormModal = ({ close }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handlePhoneChange = (phone) => {
-    setForm((prev) => ({ ...prev, phone }));
   };
 
   const showToast = (message, type = "success") => {
@@ -45,7 +52,7 @@ const ContactFormModal = ({ close }) => {
       if (res.ok) {
         showToast("Thanks! We'll contact you soon.");
         setForm({ firstName: "", lastName: "", phone: "", email: "", usage: "business" });
-        setTimeout(() => close(), 1500);
+        setTimeout(() => close(), 2000);
       } else {
         showToast("Submission failed. Try again.", "error");
       }
@@ -57,69 +64,63 @@ const ContactFormModal = ({ close }) => {
   };
 
   return (
-    <>
-
-      <div className="contact-overlay" onClick={(e) => e.target === e.currentTarget && close()}>
-        
-              {toast && (
+    <div className="contact-overlay" onClick={(e) => e.target === e.currentTarget && close()}>
+      {toast && (
         <div className={`toast ${toast.type}`}>
           {toast.message}
         </div>
       )}
-        
-        <div className="contact-modal">
-          <button type="button" className="contact-close" onClick={close}>✕</button>
-          
-          <h2>Get Started</h2>
+      
+      <div className="contact-modal">
+        <button type="button" className="contact-close" onClick={close}>✕</button>
+        <h2>Get Started</h2>
 
-          <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <input
-                name="firstName"
-                placeholder="First Name"
-                value={form.firstName}
-                onChange={handleChange}
-                required
-              />
-              <input
-                name="lastName"
-                placeholder="Last Name"
-                value={form.lastName}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <PhoneInput
-              country="in"
-              value={form.phone}
-              onChange={handlePhoneChange}
-              inputClass="phone-input"
-              containerClass="phone-container"
-              buttonClass="phone-button"
-            />
-
+        <form onSubmit={handleSubmit}>
+          <div className="form-row">
             <input
-              name="email"
-              type="email"
-              placeholder="Email Address"
-              value={form.email}
+              name="firstName"
+              placeholder="First Name"
+              value={form.firstName}
               onChange={handleChange}
               required
             />
-
-            <UsageDropdown
-              value={form.usage}
-              onChange={(value) => setForm(prev => ({ ...prev, usage: value }))}
+            <input
+              name="lastName"
+              placeholder="Last Name"
+              value={form.lastName}
+              onChange={handleChange}
+              required
             />
+          </div>
 
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? "Submitting..." : "Submit"}
-            </button>
-          </form>
-        </div>
+          <PhoneInput
+            country="in"
+            value={`${form.countryCode}${form.phone}`} // Keeps the UI synced
+            onChange={handlePhoneChange}
+            inputClass="phone-input"
+            containerClass="phone-container"
+          />
+
+          <input
+            name="email"
+            type="email"
+            placeholder="Email Address"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+
+          <UsageDropdown
+            value={form.usage}
+            onChange={(val) => setForm(prev => ({ ...prev, usage: val }))}
+          />
+
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Sending..." : "Contact Me"}
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,3 @@
-/* =========================
-   Overlay & Modal
-========================= */
 .contact-overlay {
   position: fixed;
   inset: 0;
@@ -10,7 +7,6 @@
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   z-index: 3000;
-  animation: overlayFade 0.25s ease;
 }
 
 .contact-modal {
@@ -18,13 +14,12 @@
   width: 90%;
   max-width: 480px;
   padding: 40px;
-  border-radius: 24px;
+  border-radius: 28px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(24px);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-  animation: modalAppear 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-  box-sizing: border-box; /* Ensures padding doesn't push width out */
+  animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-modal h2 {
@@ -35,32 +30,25 @@
   font-weight: 700;
 }
 
-/* =========================
-   Form Elements
-========================= */
 .contact-modal form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 100%;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-  width: 100%;
 }
 
-/* Base style for all inputs and button */
-.contact-modal input,
-.phone-input,
-.submit-btn {
+/* Universal Input Styles */
+.contact-modal input, .phone-input, .submit-btn {
   width: 100% !important;
-  height: 50px !important;
-  box-sizing: border-box !important; /* Critical for alignment */
+  height: 52px !important;
   border-radius: 12px !important;
-  font-size: 15px;
+  font-size: 15px !important;
+  box-sizing: border-box !important;
 }
 
 .contact-modal input {
@@ -69,138 +57,88 @@
   background: rgba(255, 255, 255, 0.06);
   color: white;
   outline: none;
-  transition: all 0.2s;
+  transition: border-color 0.2s;
 }
 
 .contact-modal input:focus {
   border-color: #4f8cff;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.15);
 }
 
-/* =========================
-   Phone Input Customization
-========================= */
-.phone-container {
-  width: 100% !important;
-}
-
-.phone-input {
-  padding-left: 55px !important; /* Space for flag */
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+/* Phone Input Fixes */
+.react-tel-input .form-control {
   background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: white !important;
+  padding-left: 55px !important;
 }
 
 .react-tel-input .flag-dropdown {
   background: transparent !important;
   border: none !important;
-  border-radius: 12px 0 0 12px !important;
 }
 
-.react-tel-input .selected-flag {
-  background: transparent !important;
-  padding-left: 12px !important;
-}
-
-/* The dropdown list when searching for countries */
 .react-tel-input .country-list {
   background: #1c1c1e !important;
   color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 12px !important;
-  scrollbar-width: thin;
 }
 
-/* =========================
-   Buttons & Extras
-========================= */
+.react-tel-input .country-list .country:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Soft light gray on dark bg */
+  transition: background-color 0.2s ease;
+}
+
+/* 2. Fix the "Highlight" state (often triggered by arrow keys or selection) */
+.react-tel-input .country-list .country.highlight {
+  background-color: rgba(79, 140, 255, 0.2) !important; /* Light blue tint to match your accent */
+}
+
+/* Submit Button */
 .submit-btn {
   margin-top: 8px;
   border: none;
-  background: linear-gradient(135deg, #4f8cff, #7aa6ff);
+  background: #4f8cff;
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
 
-.submit-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(79, 140, 255, 0.3);
+.submit-btn:hover {
+  background: #3d7eff;
+  transform: translateY(-2px);
 }
 
 .contact-close {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 20px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* =========================
-   Animations & Responsive
-========================= */
-@keyframes modalAppear {
-  from { opacity: 0; transform: translateY(20px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* =========================
-   Slow Slide Toast
-========================= */
 .toast {
   position: fixed;
   top: 30px;
   right: 30px;
-  padding: 18px 28px;
-  border-radius: 14px;
-  background: #ffffff;
-  color: #111111;
+  padding: 16px 24px;
+  background: white;
+  color: black;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 15px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  
-  /* Slower, smoother animation */
-  animation: toastSlowSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 10000;
+  animation: toastSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.toast.error {
-  background: #ff4f4f;
-  color: white;
+@keyframes modalAppear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes toastSlowSlide {
-  from {
-    transform: translateX(150%); /* Start further off-screen */
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Optional: Add a subtle fade out animation */
-.toast-exit {
-  animation: toastFadeOut 0.5s ease forwards;
-}
-
-@keyframes toastFadeOut {
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
+@keyframes toastSlide {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }

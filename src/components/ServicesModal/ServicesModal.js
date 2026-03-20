@@ -62,7 +62,7 @@ const ServicesModal = ({ close, onSelectService }) => {
                   ))}
                 </ul>
               </div>
-              <button 
+              {/* <button 
                 className="btn-card-select" 
                 onClick={() => {
                   if(onSelectService) onSelectService(service.title);
@@ -70,7 +70,7 @@ const ServicesModal = ({ close, onSelectService }) => {
                 }}
               >
                 Get Started
-              </button>
+              </button> */}
             </div>
           ))}
         </div>

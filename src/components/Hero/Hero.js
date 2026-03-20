@@ -19,7 +19,7 @@ const Hero = () => {
     </h1>
 
     <p className="hero__subhead">
-      From high-performance Shopify stores to Personal brands. We build the digital foundations your brand deserves.
+      From high-performance Shopify stores to Personal & Business brands. We will build the digital foundations your brand deserves.
     </p>
 
           <div className="hero__actions">

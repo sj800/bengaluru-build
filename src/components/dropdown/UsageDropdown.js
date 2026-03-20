@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./UsageDropdown.css";
 
 const options = [
-  { label: "Business Use", value: "business" },
-  { label: "Personal Use", value: "personal" }
+  { label: "Business Brand", value: "Business" },
+  { label: "Personal Brand", value: "Personal" },
+  { label: "Shopify Store Setup", value: "Shopify" }
 ];
 
 export default function UsageDropdown({ value, onChange }) {
-
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const selected = options.find(o => o.value === value);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSelect = (option) => {
     onChange(option.value);
@@ -18,33 +30,32 @@ export default function UsageDropdown({ value, onChange }) {
   };
 
   return (
-    <div className="dropdown">
-
+    <div className="usage-dropdown-container" ref={dropdownRef}>
       <button
         type="button"
-        className="dropdown-trigger"
+        className={`usage-dropdown-trigger ${open ? "is-active" : ""}`}
         onClick={() => setOpen(!open)}
       >
-        {selected.label}
-        <span className="dropdown-arrow">▾</span>
+        <span>{selected ? selected.label : "Select Use Case"}</span>
+        <span className="usage-dropdown-arrow" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+          ▾
+        </span>
       </button>
 
       {open && (
-        <div className="dropdown-menu">
+        <div className="usage-dropdown-menu">
           {options.map(option => (
             <div
               key={option.value}
-              className={`dropdown-item ${
-                value === option.value ? "selected" : ""
-              }`}
+              className={`usage-dropdown-item ${value === option.value ? "selected" : ""}`}
               onClick={() => handleSelect(option)}
             >
               {option.label}
+              {value === option.value && <span className="check-mark">✓</span>}
             </div>
           ))}
         </div>
       )}
-
     </div>
   );
 }

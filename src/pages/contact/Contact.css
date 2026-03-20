@@ -1,0 +1,209 @@
+/* Contact.css - Bengaluru Builds */
+
+:root {
+  --accent: #4f8cff;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-muted: #86868b; /* Apple standard gray */
+}
+
+.contact-page {
+  background-color: #000;
+  color: var(--text-main);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- HERO SECTION --- */
+.contact-hero {
+  padding: 120px 0 80px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(79, 140, 255, 0.1);
+  border: 1px solid rgba(79, 140, 255, 0.3);
+  color: var(--accent);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.contact-headline {
+  font-size: clamp(42px, 8vw, 76px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 48px;
+}
+
+.contact-headline span {
+  color: var(--accent);
+}
+
+/* --- CONTACT CARD --- */
+.contact-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 50px 40px;
+  border-radius: 32px;
+  display: inline-block;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 100%;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.contact-card p {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.email-link {
+  font-size: clamp(22px, 5vw, 36px);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.email-link:hover {
+  color: var(--accent);
+}
+
+/* --- DIVIDER --- */
+.divider {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  width: 40px;
+  background: #222;
+  margin: 0 15px;
+}
+
+/* --- BUTTONS --- */
+.btn-open-modal {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-open-modal:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.02);
+}
+
+/* --- INSIGHTS SECTION --- */
+.brand-insights {
+  padding: 100px 0;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 40px;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.insight-item h4 {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.insight-item p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* --- FOOTER --- */
+.contact-footer {
+  margin-top: auto;
+  padding: 60px 24px;
+  text-align: center;
+  border-top: 1px solid #111;
+}
+
+.contact-footer p {
+  color: #444;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-hero {
+    padding: 80px 0 40px;
+  }
+  
+  .contact-card {
+    padding: 40px 24px;
+    width: 100%;
+  }
+
+  .contact-headline {
+    font-size: 40px;
+  }
+}
