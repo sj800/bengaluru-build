@@ -113,7 +113,7 @@
   width: 80vw;
   max-width: 340px;
   height: 100vh;
-  background: rgba(18, 18, 20, 0.85);
+  background: rgb(0, 0, 0, 0.97);
   box-shadow: -8px 0 32px 0 rgba(0,0,0,0.18);
   backdrop-filter: blur(32px) saturate(120%);
   border-left: 1.5px solid rgba(255,255,255,0.08);
@@ -186,8 +186,8 @@ body.menu-open {
   padding: 12px 0 12px 24px;
   border-radius: 12px 0 0 12px;
   width: 80%;
-  background: rgba(255,255,255,0.4);
-  transition: background 0.1s, color 0.1s;
+  background: rgba(0,0,0,0.4);
+  transition: background 0.2s, color 0.2s;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
 }
 .header__mobile-nav a:hover {
