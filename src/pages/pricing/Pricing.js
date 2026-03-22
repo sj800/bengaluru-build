@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Pricing.css";
-import { useState } from "react";
 import ContactFormModal from "../../components/contact/ContactFormModal";
 
 const Pricing = () => {
   const [showContactModal, setShowContactModal] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null); // Track open FAQ
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   const shopifyPlans = [
     {
@@ -41,13 +45,11 @@ const Pricing = () => {
 
   return (
     <div className="pricing-page">
-      {/* Centered Header */}
       <header className="pricing-header">
         <h1>Transparent Pricing</h1>
         <p>Choose the right plan for your business growth.</p>
       </header>
 
-      {/* SHOPIFY SECTION */}
       <div className="pricing-section">
         <h2 className="section-label">Shopify Store Launchpad</h2>
         <div className="pricing-grid">
@@ -70,11 +72,9 @@ const Pricing = () => {
           <h3 className="addon-title">Shopify Specific Add-ons</h3>
           <div className="addon-row"><span>Extra Product Upload</span> <span>₹299 / 10 product</span></div>
           <div className="addon-row"><span>Monthly maintenance </span> <span>₹499 / mo</span></div>
-          
         </div>
       </div>
 
-      {/* BRAND SITES SECTION */}
       <div className="pricing-section">
         <h2 className="section-label">Personal & Business Brand Sites</h2>
         <div className="static-box">
@@ -98,22 +98,30 @@ const Pricing = () => {
         </div>
       </div>
 
-      {/* FAQ SECTION - Static List */}
       <section className="faq-section">
         <h2 className="section-label">Frequently Asked Questions</h2>
         <div className="faq-list">
           {faqs.map((faq, i) => (
-            <div key={i} className="faq-item">
-              <div className="faq-question">{faq.q}</div>
-              <div className="faq-answer">{faq.a}</div>
+            <div 
+              key={i} 
+              className={`faq-item ${activeIndex === i ? "active" : ""}`}
+              onClick={() => toggleFAQ(i)}
+            >
+              <div className="faq-question">
+                {faq.q}
+                <span className="faq-icon">{activeIndex === i ? "−" : "+"}</span>
+              </div>
+              <div className="faq-answer">
+                <div className="faq-answer-content">{faq.a}</div>
+              </div>
             </div>
           ))}
         </div>
       </section>
-          {showContactModal && (
+
+      {showContactModal && (
         <ContactFormModal close={() => setShowContactModal(false)} />
       )}
-
     </div>
   );
 };

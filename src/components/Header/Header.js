@@ -28,6 +28,7 @@ const Header = () => {
           <Link to="/about">About</Link>
           <Link to="/pricing">Pricing</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/choose-your-template">Templates</Link>
         </nav>
         <button
           className="header__menu-btn"

@@ -1,0 +1,201 @@
+/* --- RESET & BASE --- */
+.template-page {
+  background-color: #000;
+  min-height: 100vh;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  /* Smooth scroll for the whole page */
+  scroll-behavior: smooth;
+}
+
+.template-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+/* --- HEADER SECTION --- */
+.template-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.category-pill {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #86868b;
+}
+
+.template-header h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: #007aff; /* Apple Blue */
+}
+
+/* --- THE GRID --- */
+.template-grid {
+  display: grid;
+  /* 320px min ensures 3 columns on desktop, 1 on mobile */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
+/* --- THE CARD --- */
+.template-card {
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.template-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #161618;
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* --- PREVIEW WINDOW (The "Device") --- */
+.preview-window {
+  position: relative;
+  height: 220px;
+  background: #1c1c1e;
+  margin: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Browser Dots Decoration */
+.window-dots {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.window-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Scaled Iframe to show the template */
+.preview-iframe {
+  width: 300%; /* Triple the width... */
+  height: 300%; /* ...and height */
+  border: none;
+  transform: scale(0.333); /* ...then scale by 1/3 to fit */
+  transform-origin: top left;
+  pointer-events: none; /* Clicking the iframe clicks the card */
+  opacity: 0.9;
+}
+
+/* Overlay to fade the bottom of the iframe into the card */
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, #1c1c1e 100%);
+  z-index: 5;
+}
+
+/* --- CARD TEXT CONTENT --- */
+.card-content {
+  padding: 12px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-category {
+  color: #86868b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  margin-top: 0.2rem;
+  color: #fff;
+}
+
+.card-excerpt {
+  font-size: 14px;
+  color: #a1a1a6;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  /* Limits description to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- CTA LINK --- */
+.view-link {
+  margin-top: auto;
+  font-size: 14px;
+  color: #007aff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+
+.template-card:hover .view-link {
+  gap: 10px;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+  .template-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .template-container {
+    padding: 60px 20px;
+  }
+  .template-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .template-grid {
+    grid-template-columns: 1fr; /* Force single column on small phones */
+  }
+  .preview-window {
+    height: 180px;
+  }
+}
