@@ -50,6 +50,7 @@ const Header = () => {
             <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
             <Link to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</Link>
             <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link to="/choose-your-template" onClick={() => setMenuOpen(false)}>Templates</Link>
           </nav>
         </div>
         {menuOpen && <div className="header__backdrop" onClick={() => setMenuOpen(false)} />}
