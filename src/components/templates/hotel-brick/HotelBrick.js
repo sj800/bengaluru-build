@@ -9,7 +9,7 @@ const HotelBrick = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false); // Close menu after clicking on mobile
+    setIsMenuOpen(false); 
   };
 
   return (
@@ -18,17 +18,18 @@ const HotelBrick = () => {
         <nav className="hotel_brick_nav">
           <div className="hotel_brick_logo">HOTEL BRICK</div>
           
-          {/* Hamburger Icon */}
+          {/* Hamburger Toggle */}
           <button 
             className={`hotel_brick_hamburger ${isMenuOpen ? 'active' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle Navigation"
+            aria-label="Menu"
           >
             <span className="hotel_brick_bar"></span>
             <span className="hotel_brick_bar"></span>
             <span className="hotel_brick_bar"></span>
           </button>
 
+          {/* Navigation Menu */}
           <ul className={`hotel_brick_menu ${isMenuOpen ? 'hotel_brick_menu_open' : ''}`}>
             <li><button onClick={() => scrollToSection('history')} className="hotel_brick_nav_btn">History</button></li>
             <li><button onClick={() => scrollToSection('rooms')} className="hotel_brick_nav_btn">Rooms</button></li>
@@ -45,8 +46,9 @@ const HotelBrick = () => {
           </div>
         </section>
 
+        {/* History Section - Image on Right for Desktop */}
         <section id="history" className="hotel_brick_section">
-          <div className="hotel_brick_content_wrapper">
+          <div className="hotel_brick_history_flex">
             <div className="hotel_brick_text_block">
               <h2 className="hotel_brick_subtitle">Our Heritage</h2>
               <p className="hotel_brick_description">
@@ -56,10 +58,9 @@ const HotelBrick = () => {
               </p>
             </div>
             <div className="hotel_brick_image_frame">
-              {/* Verified Working Antique Brick Image */}
               <img 
                 src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" 
-                alt="Antique London Brick Wall Texture" 
+                alt="Antique London Brick Wall" 
                 className="hotel_brick_img" 
               />
             </div>
@@ -110,7 +111,7 @@ const HotelBrick = () => {
                 <input type="text" placeholder="Full Name" className="hotel_brick_input" required />
                 <input type="email" placeholder="Email Address" className="hotel_brick_input" required />
                 <textarea placeholder="Tell us about your visit..." className="hotel_brick_textarea"></textarea>
-                <button className="hotel_brick_submit">Reserve a Moment</button>
+                <button type="submit" className="hotel_brick_submit">Reserve a Moment</button>
               </form>
             </div>
           </div>

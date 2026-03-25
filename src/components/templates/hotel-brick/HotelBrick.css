@@ -1,4 +1,3 @@
-/* Color Palette & Variables */
 :root {
   --london-brick: #8b4513;
   --coal-black: #1a1a1a;
@@ -8,15 +7,17 @@
   --fog-white: #ffffff;
 }
 
-/* Base Styles */
+/* Base Fixes */
 .hotel_brick_container {
   background-color: var(--parchment);
   color: var(--coal-black);
   scroll-behavior: smooth;
   font-family: 'Playfair Display', Georgia, serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-/* Navigation & Hamburger */
+/* Header & Navigation */
 .hotel_brick_header {
   position: sticky;
   top: 0;
@@ -45,77 +46,8 @@
   display: flex;
   list-style: none;
   gap: 2rem;
-}
-
-/* Mobile Menu Toggle Styling */
-.hotel_brick_hamburger {
-  display: none;
-  cursor: pointer;
-  background: none;
-  border: none;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hotel_brick_bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: var(--coal-black);
-  transition: 0.4s;
-}
-
-/* Section/Hero Styling */
-.hotel_brick_hero {
-  height: 90vh;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url('https://images.unsplash.com/photo-1549144511-f099e773c147?q=80&w=1500') center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hotel_brick_hero_overlay {
-  background: rgba(26, 26, 26, 0.75);
-  padding: 3rem;
-  text-align: center;
-  color: white;
-  border: 1px solid var(--victorian-gold);
-}
-
-.hotel_brick_hero_title {
-  font-size: clamp(2rem, 5vw, 4rem);
-}
-
-/* General Layout */
-.hotel_brick_section {
-  padding: 100px 5%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hotel_brick_bg_alt {
-  background-color: #eee9e0;
-  max-width: 100%;
-}
-
-.hotel_brick_content_wrapper {
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.hotel_brick_subtitle {
-  font-size: 2.8rem;
-  margin-bottom: 25px;
-  color: var(--london-brick);
-}
-
-.hotel_brick_img {
-  width: 100%;
-  border: 15px solid white;
-  box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+  margin: 0;
+  padding: 0;
 }
 
 .hotel_brick_nav_btn {
@@ -128,63 +60,111 @@
   letter-spacing: 1px;
 }
 
-/* Rooms Grid */
-.hotel_brick_grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+/* History Section Alignment */
+.hotel_brick_history_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
 }
 
+.hotel_brick_text_block {
+  flex: 1.2;
+}
+
+.hotel_brick_image_frame {
+  flex: 0.8;
+  max-width: 100%;
+}
+
+.hotel_brick_img {
+  width: 100%;
+  height: auto;
+  border: 15px solid white;
+  box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Hero Section */
+.hotel_brick_hero {
+  height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('https://images.unsplash.com/photo-1549144511-f099e773c147?q=80&w=1500') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel_brick_hero_overlay {
+  background: rgba(26, 26, 26, 0.75);
+  padding: 2.5rem;
+  text-align: center;
+  color: white;
+  border: 1px solid var(--victorian-gold);
+}
+
+.hotel_brick_hero_title { font-size: clamp(1.8rem, 5vw, 3.5rem); }
+
+/* General Sections */
+.hotel_brick_section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+.hotel_brick_bg_alt { background-color: #eee9e0; }
+.hotel_brick_subtitle { font-size: 2.8rem; margin-bottom: 25px; color: var(--london-brick); }
+.hotel_brick_description { font-size: 1.15rem; line-height: 1.8; color: var(--soot-grey); }
+
+/* Rooms Grid */
+.hotel_brick_center_title { text-align: center; font-size: 3rem; margin-bottom: 50px; }
+.hotel_brick_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .hotel_brick_card { background: white; border: 1px solid #e0e0e0; }
-.hotel_brick_card_img { width: 100%; height: 300px; object-fit: cover; }
+.hotel_brick_card_img { width: 100%; height: 280px; object-fit: cover; }
 .hotel_brick_card_info { padding: 25px; }
 
-/* Contact Grid */
-.hotel_brick_contact_grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
-
+/* Contact Section Grid */
+.hotel_brick_contact_grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .hotel_brick_info_item { margin-bottom: 30px; }
 .hotel_brick_info_item strong { display: block; color: var(--london-brick); font-size: 0.8rem; letter-spacing: 2px; }
 .hotel_brick_form { display: flex; flex-direction: column; gap: 15px; }
 .hotel_brick_input, .hotel_brick_textarea { padding: 15px; border: 1px solid #ccc; font-family: inherit; }
 .hotel_brick_submit { padding: 18px; background: var(--london-brick); color: white; border: none; cursor: pointer; text-transform: uppercase; font-weight: bold; }
 
-.hotel_brick_footer { text-align: center; padding: 60px; background: var(--coal-black); color: var(--parchment); }
+/* Hamburger Menu Logic */
+.hotel_brick_hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
 
-/* RESPONSIVE DESIGN */
+.hotel_brick_bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--coal-black);
+  transition: 0.3s;
+}
+
 @media (max-width: 900px) {
-  .hotel_brick_hamburger {
-    display: flex;
-  }
-
+  .hotel_brick_hamburger { display: flex; }
   .hotel_brick_menu {
     position: fixed;
     left: -100%;
-    top: 75px;
+    top: 70px;
     flex-direction: column;
-    background-color: var(--parchment);
+    background: var(--parchment);
     width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    padding: 2rem 0;
-    border-bottom: 2px solid var(--london-brick);
+    padding: 30px 0;
+    transition: 0.4s ease-in-out;
+    border-bottom: 3px solid var(--london-brick);
   }
+  .hotel_brick_menu_open { left: 0; }
+  
+  .hotel_brick_history_flex { flex-direction: column; text-align: center; }
+  .hotel_brick_contact_grid { grid-template-columns: 1fr; gap: 40px; }
 
-  .hotel_brick_menu_open {
-    left: 0;
-  }
-
-  .hotel_brick_contact_grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  /* Hamburger Animation to 'X' */
+  /* Hamburger to X */
   .hotel_brick_hamburger.active .hotel_brick_bar:nth-child(2) { opacity: 0; }
   .hotel_brick_hamburger.active .hotel_brick_bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .hotel_brick_hamburger.active .hotel_brick_bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
+
+.hotel_brick_footer { text-align: center; padding: 50px; background: var(--coal-black); color: var(--parchment); }
