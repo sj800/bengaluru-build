@@ -1,0 +1,246 @@
+/* Color Palette & Variables */
+:root {
+  --london-brick: #8b4513;
+  --coal-black: #1a1a1a;
+  --parchment: #fdfaf5;
+  --victorian-gold: #c5a059;
+  --soot-grey: #4a4a4a;
+  --fog-white: #ffffff;
+}
+
+/* Base Styles */
+.hotel_brick_container {
+  background-color: var(--parchment);
+  color: var(--coal-black);
+  scroll-behavior: smooth;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* SEO Friendly Sticky Nav */
+.hotel_brick_header {
+  position: sticky;
+  top: 0;
+  background: var(--fog-white);
+  border-bottom: 4px solid var(--london-brick);
+  z-index: 1000;
+  padding: 1rem 2rem;
+}
+
+.hotel_brick_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hotel_brick_logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hotel_brick_menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.hotel_brick_nav_btn {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.hotel_brick_nav_btn:hover {
+  color: var(--london-brick);
+}
+
+/* Hero Section */
+.hotel_brick_hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('https://images.unsplash.com/photo-1549144511-f099e773c147?q=80&w=1500') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel_brick_hero_overlay {
+  background: rgba(26, 26, 26, 0.75);
+  padding: 3rem;
+  text-align: center;
+  color: white;
+  border: 1px solid var(--victorian-gold);
+  backdrop-filter: blur(2px);
+}
+
+.hotel_brick_hero_title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+/* General Section Layout */
+.hotel_brick_section {
+  padding: 100px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hotel_brick_bg_alt {
+  background-color: #eee9e0;
+  max-width: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png');
+}
+
+.hotel_brick_content_wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hotel_brick_text_block {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hotel_brick_subtitle {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  color: var(--london-brick);
+}
+
+.hotel_brick_description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--soot-grey);
+}
+
+.hotel_brick_img {
+  width: 100%;
+  border: 15px solid white;
+  box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Rooms Grid */
+.hotel_brick_center_title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+.hotel_brick_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.hotel_brick_card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.hotel_brick_card:hover {
+  transform: translateY(-5px);
+}
+
+.hotel_brick_card_img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.hotel_brick_card_info {
+  padding: 25px;
+}
+
+/* --- New Contact Grid Layout --- */
+.hotel_brick_contact_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.hotel_brick_info_item {
+  margin-bottom: 30px;
+}
+
+.hotel_brick_info_item strong {
+  display: block;
+  text-transform: uppercase;
+  color: var(--london-brick);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.hotel_brick_info_item p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.hotel_brick_form_heading {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.hotel_brick_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hotel_brick_input, 
+.hotel_brick_textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.hotel_brick_textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.hotel_brick_submit {
+  padding: 18px;
+  background: var(--london-brick);
+  color: white;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hotel_brick_submit:hover {
+  background: var(--coal-black);
+}
+
+/* Footer */
+.hotel_brick_footer {
+  text-align: center;
+  padding: 60px;
+  background: var(--coal-black);
+  color: var(--parchment);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hotel_brick_contact_grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
