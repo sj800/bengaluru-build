@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HotelBrick.css';
 
 const HotelBrick = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false); // Close menu after clicking on mobile
   };
 
   return (
     <div className="hotel_brick_container">
-      {/* SEO Friendly Navigation */}
       <header className="hotel_brick_header">
         <nav className="hotel_brick_nav">
           <div className="hotel_brick_logo">HOTEL BRICK</div>
-          <ul className="hotel_brick_menu">
+          
+          {/* Hamburger Icon */}
+          <button 
+            className={`hotel_brick_hamburger ${isMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle Navigation"
+          >
+            <span className="hotel_brick_bar"></span>
+            <span className="hotel_brick_bar"></span>
+            <span className="hotel_brick_bar"></span>
+          </button>
+
+          <ul className={`hotel_brick_menu ${isMenuOpen ? 'hotel_brick_menu_open' : ''}`}>
             <li><button onClick={() => scrollToSection('history')} className="hotel_brick_nav_btn">History</button></li>
             <li><button onClick={() => scrollToSection('rooms')} className="hotel_brick_nav_btn">Rooms</button></li>
             <li><button onClick={() => scrollToSection('contact')} className="hotel_brick_nav_btn">Contact</button></li>
@@ -24,7 +38,6 @@ const HotelBrick = () => {
       </header>
 
       <main>
-        {/* Hero Section */}
         <section className="hotel_brick_hero">
           <div className="hotel_brick_hero_overlay">
             <h1 className="hotel_brick_hero_title">Built to Last. <br/>Designed to Remember.</h1>
@@ -32,7 +45,6 @@ const HotelBrick = () => {
           </div>
         </section>
 
-        {/* History Section */}
         <section id="history" className="hotel_brick_section">
           <div className="hotel_brick_content_wrapper">
             <div className="hotel_brick_text_block">
@@ -44,7 +56,7 @@ const HotelBrick = () => {
               </p>
             </div>
             <div className="hotel_brick_image_frame">
-              {/* Updated Image URL for Antique Brick Aesthetic */}
+              {/* Verified Working Antique Brick Image */}
               <img 
                 src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" 
                 alt="Antique London Brick Wall Texture" 
@@ -54,7 +66,6 @@ const HotelBrick = () => {
           </div>
         </section>
 
-        {/* Rooms Section */}
         <section id="rooms" className="hotel_brick_section hotel_brick_bg_alt">
           <h2 className="hotel_brick_center_title">The Quarters</h2>
           <div className="hotel_brick_grid">
@@ -75,11 +86,8 @@ const HotelBrick = () => {
           </div>
         </section>
 
-        {/* Contact & Inquiries Section */}
         <section id="contact" className="hotel_brick_section">
           <div className="hotel_brick_contact_grid">
-            
-            {/* Contact Details Column */}
             <div className="hotel_brick_contact_details">
               <h2 className="hotel_brick_subtitle">The Concierge</h2>
               <div className="hotel_brick_info_item">
@@ -96,7 +104,6 @@ const HotelBrick = () => {
               </div>
             </div>
 
-            {/* Inquiries Form Column */}
             <div className="hotel_brick_inquiries_box">
               <h3 className="hotel_brick_form_heading">Direct Correspondence</h3>
               <form className="hotel_brick_form" onSubmit={(e) => e.preventDefault()}>
@@ -106,7 +113,6 @@ const HotelBrick = () => {
                 <button className="hotel_brick_submit">Reserve a Moment</button>
               </form>
             </div>
-
           </div>
         </section>
       </main>

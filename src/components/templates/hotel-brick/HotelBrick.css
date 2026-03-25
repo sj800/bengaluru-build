@@ -16,13 +16,13 @@
   font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* SEO Friendly Sticky Nav */
+/* Navigation & Hamburger */
 .hotel_brick_header {
   position: sticky;
   top: 0;
   background: var(--fog-white);
   border-bottom: 4px solid var(--london-brick);
-  z-index: 1000;
+  z-index: 2000;
   padding: 1rem 2rem;
 }
 
@@ -47,22 +47,25 @@
   gap: 2rem;
 }
 
-.hotel_brick_nav_btn {
+/* Mobile Menu Toggle Styling */
+.hotel_brick_hamburger {
+  display: none;
+  cursor: pointer;
   background: none;
   border: none;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.hotel_brick_nav_btn:hover {
-  color: var(--london-brick);
+.hotel_brick_bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--coal-black);
+  transition: 0.4s;
 }
 
-/* Hero Section */
+/* Section/Hero Styling */
 .hotel_brick_hero {
   height: 90vh;
   background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
@@ -78,15 +81,13 @@
   text-align: center;
   color: white;
   border: 1px solid var(--victorian-gold);
-  backdrop-filter: blur(2px);
 }
 
 .hotel_brick_hero_title {
   font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 1rem;
 }
 
-/* General Section Layout */
+/* General Layout */
 .hotel_brick_section {
   padding: 100px 5%;
   max-width: 1200px;
@@ -96,7 +97,6 @@
 .hotel_brick_bg_alt {
   background-color: #eee9e0;
   max-width: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png');
 }
 
 .hotel_brick_content_wrapper {
@@ -106,21 +106,10 @@
   flex-wrap: wrap;
 }
 
-.hotel_brick_text_block {
-  flex: 1;
-  min-width: 300px;
-}
-
 .hotel_brick_subtitle {
   font-size: 2.8rem;
   margin-bottom: 25px;
   color: var(--london-brick);
-}
-
-.hotel_brick_description {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: var(--soot-grey);
 }
 
 .hotel_brick_img {
@@ -129,118 +118,73 @@
   box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Rooms Grid */
-.hotel_brick_center_title {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 50px;
+.hotel_brick_nav_btn {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
+/* Rooms Grid */
 .hotel_brick_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
 }
 
-.hotel_brick_card {
-  background: white;
-  border: 1px solid #e0e0e0;
-  transition: transform 0.3s ease;
-}
+.hotel_brick_card { background: white; border: 1px solid #e0e0e0; }
+.hotel_brick_card_img { width: 100%; height: 300px; object-fit: cover; }
+.hotel_brick_card_info { padding: 25px; }
 
-.hotel_brick_card:hover {
-  transform: translateY(-5px);
-}
-
-.hotel_brick_card_img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.hotel_brick_card_info {
-  padding: 25px;
-}
-
-/* --- New Contact Grid Layout --- */
+/* Contact Grid */
 .hotel_brick_contact_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: start;
 }
 
-.hotel_brick_info_item {
-  margin-bottom: 30px;
-}
+.hotel_brick_info_item { margin-bottom: 30px; }
+.hotel_brick_info_item strong { display: block; color: var(--london-brick); font-size: 0.8rem; letter-spacing: 2px; }
+.hotel_brick_form { display: flex; flex-direction: column; gap: 15px; }
+.hotel_brick_input, .hotel_brick_textarea { padding: 15px; border: 1px solid #ccc; font-family: inherit; }
+.hotel_brick_submit { padding: 18px; background: var(--london-brick); color: white; border: none; cursor: pointer; text-transform: uppercase; font-weight: bold; }
 
-.hotel_brick_info_item strong {
-  display: block;
-  text-transform: uppercase;
-  color: var(--london-brick);
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-}
+.hotel_brick_footer { text-align: center; padding: 60px; background: var(--coal-black); color: var(--parchment); }
 
-.hotel_brick_info_item p {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.hotel_brick_form_heading {
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-}
-
-.hotel_brick_form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.hotel_brick_input, 
-.hotel_brick_textarea {
-  padding: 15px;
-  border: 1px solid #ccc;
-  background: #fff;
-  font-family: inherit;
-  font-size: 1rem;
-}
-
-.hotel_brick_textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.hotel_brick_submit {
-  padding: 18px;
-  background: var(--london-brick);
-  color: white;
-  border: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.hotel_brick_submit:hover {
-  background: var(--coal-black);
-}
-
-/* Footer */
-.hotel_brick_footer {
-  text-align: center;
-  padding: 60px;
-  background: var(--coal-black);
-  color: var(--parchment);
-}
-
-/* Responsive */
+/* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
+  .hotel_brick_hamburger {
+    display: flex;
+  }
+
+  .hotel_brick_menu {
+    position: fixed;
+    left: -100%;
+    top: 75px;
+    flex-direction: column;
+    background-color: var(--parchment);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    border-bottom: 2px solid var(--london-brick);
+  }
+
+  .hotel_brick_menu_open {
+    left: 0;
+  }
+
   .hotel_brick_contact_grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  /* Hamburger Animation to 'X' */
+  .hotel_brick_hamburger.active .hotel_brick_bar:nth-child(2) { opacity: 0; }
+  .hotel_brick_hamburger.active .hotel_brick_bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hotel_brick_hamburger.active .hotel_brick_bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
