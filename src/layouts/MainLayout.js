@@ -1,16 +1,17 @@
-import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
-
-const MainLayout = ({ children }) => (
+const MainLayout = () => (
   <>
     <Header />
-    
-    <main>{children}</main>
-
+    <main>
+       <Outlet /> {/* Ensure this is here! */}
+    </main>
     <Footer />
   </>
 );
 
 export default MainLayout;
+
+// ---

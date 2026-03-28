@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { templateList } from '../../index'; 
+import { templateList } from '../../templateData';
 import './ChooseYourTemplate.css';
 
 const ChooseYourTemplate = () => {

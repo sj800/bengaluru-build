@@ -19,12 +19,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false react-scripts build",
-    "build:local": "react-scripts build",
+    "build": "cross-env CI=false react-scripts build && react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && wrangler deploy",
-    "preview": "npm run build && wrangler dev"
+    "deploy": "npm run build && wrangler deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -36,7 +34,8 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "chrome 64"
     ],
     "development": [
       "last 1 chrome version",
@@ -45,6 +44,27 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
+    "puppeteer": "^24.40.0",
     "wrangler": "^4.73.0"
+  },
+  "reactSnap": {
+    "include": [
+      "/",
+      "/about",
+      "/pricing",
+      "/contact",
+      "/choose-your-template",
+      "/templates/student-profile",
+      "/templates/professional-profile",
+      "/templates/professional-profile-umbra",
+      "/templates/hotel-brick"
+    ],
+    "skipThirdPartyRequests": true,
+    "async": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
